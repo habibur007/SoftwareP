@@ -163,7 +163,36 @@ float menu()
     scanf("%f",&dis);
     return dis;
 }
+void sort() {
 
+    temp=head;
+    struct node *var=temp;
+    char name[50],phone[50];
+    int i=50;
+    while(i>=0) {
+        while(temp!=NULL) {
+            while(var!=NULL) {
+                if((temp->name[i])>(var->name[i])) {
+                    strcpy(name,temp->name);
+                    strcpy(phone,temp->phn);
+                    ///name=temp->name;
+                    strcpy(temp->name,var->name);
+                    strcpy(temp->phn,var->phn);
+                    ///temp->name=var->name;
+                    strcpy(var->name,name);
+                    strcpy(var->phn,phone);
+                    ///var->name=name;
+                }
+                var=var->next;
+            }
+            temp=temp->next;
+            var=temp;
+        }
+        temp=head;
+        var=temp;
+        i--;
+    }
+}
 
 
 int main()
